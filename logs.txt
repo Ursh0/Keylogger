@@ -1,13 +1,1 @@
-        ThreadRunning = False  # Set the flag to False to stop the thread gracefully     18:30:47 28-10-2024
-        ThreadRunning = False  # Set the flag to False to stop the thread gracefully     18:31:49 28-10-2024
-ctrl_l     18:31:50 28-10-2024
-     18:31:50 28-10-2024
-        ThreadRunning = False  # Set the flag to False to stop the thread gracefully     18:31:55 28-10-2024
-ctrl_l     18:31:55 28-10-2024
-     18:31:56 28-10-2024
-ctrl_l     18:31:56 28-10-2024
-     18:31:56 28-10-2024
-ctrl_l     18:31:56 28-10-2024
-     18:31:56 28-10-2024
-ctrl_l     18:31:56 28-10-2024
-     18:31:57 28-10-2024
+sendEmail     16:14:08 29-10-2024
