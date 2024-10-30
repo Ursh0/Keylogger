@@ -1,15 +1,1 @@
-from pynput import mouse
-import datetime
-import pygetwindow as gw
-
-mouseClickLogs = "mouseClickLogs.txt"
-
-def on_click(x, y, button, pressed):
-    if pressed:
-        print("pressed")
-
-
-
-if __name__ == "__main__":
-    with mouse.Listener(on_click=on_click) as listener:
-        listener.join()     15:16:07 30-10-2024
+     18:22:30 30-10-2024
