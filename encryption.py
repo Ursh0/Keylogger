@@ -5,10 +5,6 @@ import os
 import sys
 import logging
 
-
-
-
-
 logging.basicConfig(filename="debug.log", level=logging.DEBUG)
 
 key = token_bytes(16)
@@ -16,16 +12,12 @@ key = token_bytes(16)
 log_file = "logs.txt"
 clipBoard_file = "clipBoardLogs.txt"
 
-
 def resource_path(relative_path):
     """ Get the absolute path to the resource, adjusting for PyInstaller's executable environment. """
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
 key_file_path = resource_path("encryption_key.bin")
-
-
-
 
 def encryptContents(file):
 
@@ -55,22 +47,6 @@ def createBinFile(fileName):
         return filename
     return None
 
-
-# key_file_path = "encryption_key.bin"
-# def save_key():
-#     if not os.path.exists(key_file_path):  
-#         key = token_bytes(16)  
-#         with open(key_file_path, "wb") as key_file:
-#             key_file.write(key)
-#         print("Encryption key saved.")
-#     else:
-#         print("Encryption key already exists.")
-
-# def load_key():
-#     with open("encryption_key.bin", "rb") as key_file:
-#         return key_file.read()
-
-
 def save_key():
     if not os.path.exists(key_file_path):
         key = token_bytes(16)
@@ -83,8 +59,6 @@ def save_key():
 def load_key():
     with open(key_file_path, "rb") as key_file:
         return key_file.read()
-
-
 
 def decrypt(eFile):
     with open(eFile, "rb") as file:
