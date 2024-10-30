@@ -3,21 +3,41 @@ from secrets import token_bytes
 import re
 import os
 import sys
+import logging
+
+
+
+
+
+logging.basicConfig(filename="debug.log", level=logging.DEBUG)
+
 key = token_bytes(16)
 
 log_file = "logs.txt"
 clipBoard_file = "clipBoardLogs.txt"
 
 
+def resource_path(relative_path):
+    """ Get the absolute path to the resource, adjusting for PyInstaller's executable environment. """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
+key_file_path = resource_path("encryption_key.bin")
+
+
+
+
 def encryptContents(file):
 
     with open(file, "r") as file:
-        contents = file.read()
-        cipher = AES.new(load_key(), AES.MODE_EAX)
-        nonce = cipher.nonce
-        ciphertext, tag = cipher.encrypt_and_digest(contents.encode('ascii'))
-        return createEncryptedFile(nonce, ciphertext, tag, file.name)
-
+        try:
+            contents = file.read()
+            cipher = AES.new(load_key(), AES.MODE_EAX)
+            nonce = cipher.nonce
+            ciphertext, tag = cipher.encrypt_and_digest(contents.encode('ascii'))
+            return createEncryptedFile(nonce, ciphertext, tag, file.name)
+        except Exception as e:
+            logging.error(f"Failed to encrypt: {e}")
 
 def createEncryptedFile(nonce, ciphertext, tag, fileName):
     fileName = createBinFile(fileName)
@@ -36,10 +56,24 @@ def createBinFile(fileName):
     return None
 
 
-key_file_path = "encryption_key.bin"
+# key_file_path = "encryption_key.bin"
+# def save_key():
+#     if not os.path.exists(key_file_path):  
+#         key = token_bytes(16)  
+#         with open(key_file_path, "wb") as key_file:
+#             key_file.write(key)
+#         print("Encryption key saved.")
+#     else:
+#         print("Encryption key already exists.")
+
+# def load_key():
+#     with open("encryption_key.bin", "rb") as key_file:
+#         return key_file.read()
+
+
 def save_key():
-    if not os.path.exists(key_file_path):  
-        key = token_bytes(16)  
+    if not os.path.exists(key_file_path):
+        key = token_bytes(16)
         with open(key_file_path, "wb") as key_file:
             key_file.write(key)
         print("Encryption key saved.")
@@ -47,8 +81,10 @@ def save_key():
         print("Encryption key already exists.")
 
 def load_key():
-    with open("encryption_key.bin", "rb") as key_file:
+    with open(key_file_path, "rb") as key_file:
         return key_file.read()
+
+
 
 def decrypt(eFile):
     with open(eFile, "rb") as file:
