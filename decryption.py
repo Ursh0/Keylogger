@@ -4,10 +4,6 @@ from encryption import decrypt
 import re
 import sys
 
-# def checkBinFile(filename):
-#     pattern = r"\.bin$"
-#     return re.search(pattern, filename) is not None
-
 if __name__ == "__main__":
 
     if len(sys.argv) < 2:
@@ -15,10 +11,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     filename = sys.argv[1]
-    # if checkBinFile(filename) is True:
     decrypt(filename)
-    # else:
-    #     print("Cannot decrypt")
-
+    
 
         

