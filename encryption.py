@@ -45,7 +45,9 @@ def createBinFile(fileName):
     if match:
         filename = match.group() + ".bin"
         return filename
+    print("ok")
     return None
+
 
 def save_key():
     if not os.path.exists(key_file_path):

