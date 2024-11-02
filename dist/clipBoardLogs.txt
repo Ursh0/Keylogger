@@ -1,0 +1,40 @@
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:11 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:12 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:13 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:14 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:15 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:16 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:17 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:18 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:19 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:20 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:21 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:22 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:23 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:24 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:25 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:26 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:27 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:28 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:29 02-11-2024
+pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
+     18:48:30 02-11-2024
