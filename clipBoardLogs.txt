@@ -1,24 +1,12 @@
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:34:57 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:34:58 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:34:59 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:35:00 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:35:01 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:35:02 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:35:03 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:35:04 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:35:05 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:35:06 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:35:07 02-11-2024
-pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
-     17:35:08 02-11-2024
+log_file     19:03:43 02-11-2024
+log_file     19:03:44 02-11-2024
+log_file     19:03:45 02-11-2024
+log_file     19:03:46 02-11-2024
+log_file     19:03:47 02-11-2024
+log_file     19:03:48 02-11-2024
+log_file     19:03:49 02-11-2024
+log_file     19:03:50 02-11-2024
+log_file     19:03:51 02-11-2024
+log_file     19:03:52 02-11-2024
+log_file     19:03:53 02-11-2024
+log_file     19:03:54 02-11-2024

