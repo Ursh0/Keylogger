@@ -5,11 +5,11 @@ import os
 import sys
 import logging
 
-# logging.basicConfig(filename="debug.log", level=logging.DEBUG)
+logging.basicConfig(filename="debug.log", level=logging.DEBUG)
 
 key = token_bytes(16)
 
-# log_file = "logs.txt"
+log_file = "logs.txt"
 clipBoard_file = "clipBoardLogs.txt"
 
 def resource_path(relative_path):
@@ -45,9 +45,7 @@ def createBinFile(fileName):
     if match:
         filename = match.group() + ".bin"
         return filename
-    print("ok")
     return None
-
 
 def save_key():
     if not os.path.exists(key_file_path):
