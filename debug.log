@@ -62,3 +62,37 @@ ERROR:root:Failed to encrypt: [Errno 13] Permission denied: 'logs.bin'
 ERROR:root:Failed to encrypt: [Errno 13] Permission denied: 'clipBoardLogs.bin'
 ERROR:root:Failed to encrypt: [Errno 13] Permission denied: 'logs.bin'
 ERROR:root:Failed to encrypt: [Errno 13] Permission denied: 'clipBoardLogs.bin'
+ERROR:pynput.keyboard.Listener:Unhandled exception in listener callback
+Traceback (most recent call last):
+  File "C:\Users\ukhar\AppData\Local\Programs\Python\Python313\Lib\site-packages\pynput\_util\__init__.py", line 229, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\ukhar\AppData\Local\Programs\Python\Python313\Lib\site-packages\pynput\keyboard\_win32.py", line 316, in _process
+    self.on_press(key)
+    ~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ukhar\AppData\Local\Programs\Python\Python313\Lib\site-packages\pynput\_util\__init__.py", line 145, in inner
+    if f(*args) is False:
+       ~^^^^^^^
+  File "C:\Users\ukhar\COMP6841\SAP\Keylogger\keylogger.py", line 30, in on_press
+    remove()
+    ~~~~~~^^
+  File "C:\Users\ukhar\COMP6841\SAP\Keylogger\emailFunctionality.py", line 50, in remove
+    os.remove(clipBoard_file)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'clipBoardLogs.txt'
+ERROR:pynput.keyboard.Listener:Unhandled exception in listener callback
+Traceback (most recent call last):
+  File "C:\Users\ukhar\AppData\Local\Programs\Python\Python313\Lib\site-packages\pynput\_util\__init__.py", line 229, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\ukhar\AppData\Local\Programs\Python\Python313\Lib\site-packages\pynput\keyboard\_win32.py", line 316, in _process
+    self.on_press(key)
+    ~~~~~~~~~~~~~^^^^^
+  File "C:\Users\ukhar\AppData\Local\Programs\Python\Python313\Lib\site-packages\pynput\_util\__init__.py", line 145, in inner
+    if f(*args) is False:
+       ~^^^^^^^
+  File "C:\Users\ukhar\COMP6841\SAP\Keylogger\keylogger.py", line 30, in on_press
+    remove()
+    ~~~~~~^^
+  File "C:\Users\ukhar\COMP6841\SAP\Keylogger\emailFunctionality.py", line 50, in remove
+    os.remove(clipBoard_file)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'clipBoardLogs.txt'

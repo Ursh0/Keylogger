@@ -28,7 +28,7 @@ def on_press(key):
         ThreadRunning = False
         unhide()
         remove()
-        atexit.register(remove)
+        # atexit.register(remove)
         return False  
     
     keyPressed = returnKeyType(key)
