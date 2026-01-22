@@ -1,9 +1,8 @@
-
-# COMP6841 SAP – Keylogger & Social Engineering Project (Educational)
+Keylogger & Social Engineering Project (Educational)
 
 ## Disclaimer
 
-This project was developed strictly for **educational purposes** as part of the UNSW course **COMP6841 – Something Awesome Project (SAP)**.  
+This project was developed strictly for **educational purposes**
 All testing was conducted with **explicit participant consent**.  
 The purpose of this project is to understand how real-world attacks operate in order to improve defensive security practices and awareness.  
 
