@@ -1,2 +1,0 @@
-start "" "copelogger.exe"
-exit

